@@ -5,7 +5,7 @@
 
 - thread ကို နည်း၅ မျိုးနဲ့သုံးနိုင်ပါတယ်။
 
-#### 1 function pointer နည်း
+#### <u>1 function pointer နည်း</u>
 void fun(int x) {
     while(x-->0) { cout << x << endl; }
 }
