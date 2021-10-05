@@ -5,7 +5,7 @@
 
 - thread ကို နည်း၅ မျိုးနဲ့သုံးနိုင်ပါတယ်။
 
-## 1 function pointer နည်း
+#### 1 function pointer နည်း
 void fun(int x) {
     while(x-->0) { cout << x << endl; }
 }
@@ -15,7 +15,7 @@ int main() {
     return 0;
 }
 
-## 2 Lambda function 
+#### 2 Lambda function 
 
 int main() {
     auto fun = [] (int x) {
@@ -27,7 +27,7 @@ int main() {
     return 0;
 }
 
-## 3 Functor
+#### 3 Functor
 class Base{
     public:
         void operator () (int x) {
@@ -43,7 +43,7 @@ int main() {
     return 0;
 }
 
-## 4 member function
+#### 4 member function
 class Base{
     public:
         void run(int x) {
@@ -60,7 +60,7 @@ int main() {
     return 0;
 }
 
-## 5 static member function
+#### 5 static member function
 class Base{
     public:
         static void run(int x) {
