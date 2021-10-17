@@ -1,4 +1,6 @@
 # cpp thread
+
+<img src="img/confuse.png" />
 ### how to compile
 $ g++ -std=c++11 -pthread blabla.cpp
     (or)
