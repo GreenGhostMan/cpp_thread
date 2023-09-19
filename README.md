@@ -13,6 +13,7 @@ $ $compile blabla.cpp
 - thread ကို နည်း၅ မျိုးနဲ့သုံးနိုင်ပါတယ်။
 
 #### 1 function pointer နည်း
+```
 void fun(int x) {
     while(x-->0) { cout << x << endl; }
 }
@@ -21,9 +22,9 @@ int main() {
     t1.join();
     return 0;
 }
-
+```
 #### 2 Lambda function 
-
+```
 int main() {
     auto fun = [] (int x) {
         while(x-->0) { cout << x << endl; }
@@ -33,8 +34,9 @@ int main() {
     t.join();
     return 0;
 }
-
+```
 #### 3 Functor
+```
 class Base{
     public:
         void operator () (int x) {
@@ -49,8 +51,9 @@ int main() {
     t.join();
     return 0;
 }
-
+```
 #### 4 member function
+```
 class Base{
     public:
         void run(int x) {
@@ -66,8 +69,9 @@ int main() {
     t.join();
     return 0;
 }
-
+```
 #### 5 static member function
+```
 class Base{
     public:
         static void run(int x) {
@@ -82,7 +86,7 @@ int main() {
     t.join();
     return 0;
 }
-
+```
 - join()  ကို ခေါ်ပြီး thread လုပ်ငန်း ပြီးအောင်စောင့်ရတယ်။ wait  ရတယ်ပေါ့။
 - နှစ်ခါ join() ရင် system error နဲ့ terminate ဖြစ်တယ်။
 - နှစ်ခါ မ join မိအောင် joinable() ဖြစ်မဖြစ် စစ်သင့်တယ်။ if (t1.joinable()) { t1.join(); blabla; }
@@ -92,7 +96,7 @@ int main() {
 
 ### mutex
 - mutex ဆိုတာက race condition ဖြစ်ရင်သုံးတာ။ race condition ဆိုတာက thread/process တွေက common data ကို တပြိုင်နက်တည်း ပြင်နေတာမျိုးကိုပြောတာ။ အဲ့တော့ race condition ဖြစ်ရင် သူ့ကိုရှောင်ဖို့ mutex ကို သုံးရမယ်။ lock(), unlock() တို့သုံးပေါ့။ ပြသနာဖြစ်တဲ့ common data ကို critical area လို့ခေါ်တယ်။ mutex သုံးခြင်းကို 04_mutex_in_threading.cpp ကိုကြည့်ပါ။ parallel ဆိုပေမဲ့ t1 နဲ့ t2 ဟာ စတင်ချိန် micro seconds လောက်တော့ ကွာခြားမှာပါ။ t1 က mutex lock() လုပ်ထားတော့ t2 က block ဖြစ်နေမှာပေါ့။
-
+```
 std::mutex m;
 
 int myAmount=0;
@@ -102,7 +106,7 @@ void addMoney()
     ++myAmount;
     m.unlock();
 }
-
+```
 ### try_lock()
 - m.lock() က ရပ်စောင့်နေရလို့ blocking ဖြစ်ပေမဲ့ m.try_lock() ကတော့ true/false return ပေးတာမို့ non blocking အနေနဲ့သုံးလို့ရတယ်။
 
